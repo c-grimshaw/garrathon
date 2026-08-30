@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div class="cta-row">
-			<a class="cta" href={smsHref}>RSVP — text the best man</a>
+			<a class="cta" href={smsHref}>RSVP: text the best man</a>
 			<a class="cta ghost" href={telHref}>Emergency: call {bestMan.name}</a>
 		</div>
 		<button class="tracker" disabled>

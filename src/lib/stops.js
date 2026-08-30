@@ -74,7 +74,7 @@ export const stops = [
 		leg: 'west',
 		approach: '2-minute walk',
 		details: 'Call the Ubers from the line. Departing 9:10.',
-		goal: 'Zero pitchers for the groom. One double scoop — he has earned it.',
+		goal: 'Zero pitchers for the groom. One double scoop. He has earned it.',
 		split: '2.5 km'
 	},
 	{

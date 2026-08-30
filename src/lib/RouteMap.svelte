@@ -50,7 +50,7 @@
 				L.marker(stop.coords, { icon, title: stop.name })
 					.addTo(map)
 					.bindPopup(
-						`<strong>${stop.time} — ${stop.name}</strong><br>Goal: ${stop.goal}<br><a href="${mapsUrl(stop)}" target="_blank" rel="noopener">${stop.address}</a>`
+						`<strong>${stop.time} · ${stop.name}</strong><br>Goal: ${stop.goal}<br><a href="${mapsUrl(stop)}" target="_blank" rel="noopener">${stop.address}</a>`
 					);
 			}
 
