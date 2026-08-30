@@ -99,7 +99,7 @@ export const stops = [
 		leg: 'downtown',
 		approach: '5-minute walk',
 		details: 'Pre-booked, ~75 min. Full-body VR. Grand finale.',
-		goal: 'The groom dies only in VR.',
+		goal: 'The groom dies (in VR).',
 		split: '2.9 km'
 	}
 ];
