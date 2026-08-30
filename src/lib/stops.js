@@ -113,11 +113,18 @@ export const finish = {
 export const START_ISO = '2026-09-09T15:00:00-04:00';
 export const END_ISO = '2026-09-09T23:45:00-04:00';
 
-// Replace with the real best man before the big day.
+// Replace the phone with Brook's real number before the big day.
 export const bestMan = {
-	name: 'THE BEST MAN', // BEST_MAN_NAME placeholder
+	name: 'Brook Willis',
 	phone: '+16135550199' // BEST_MAN_PHONE placeholder
 };
+
+export const roster = [
+	{ name: 'Garrett McDonald', role: 'The Bachelor', bachelor: true },
+	{ name: 'Brook Willis', role: 'Best Man' },
+	{ name: 'Will Hamilton', role: 'Runner' },
+	{ name: 'Charlie Grimshaw', role: 'Runner' }
+];
 
 /** @param {{ name: string, address: string }} stop */
 export function mapsUrl(stop) {

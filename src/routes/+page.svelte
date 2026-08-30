@@ -3,7 +3,7 @@
 	import Countdown from '$lib/Countdown.svelte';
 	import RouteMap from '$lib/RouteMap.svelte';
 	import Schedule from '$lib/Schedule.svelte';
-	import { bestMan } from '$lib/stops.js';
+	import { bestMan, roster } from '$lib/stops.js';
 
 	const smsHref = `sms:${bestMan.phone}?&body=${encodeURIComponent("I'm in for the Garr-athon 09.09 🏁")}`;
 	const telHref = `tel:${bestMan.phone}`;
@@ -46,6 +46,19 @@
 	<section id="checkpoints">
 		<h2><span class="kicker">Checkpoints</span>September 9 · gun at 3:00 PM</h2>
 		<Schedule />
+	</section>
+
+	<!-- ——— Roster ——— -->
+	<section id="roster">
+		<h2><span class="kicker">Start list</span>The runners</h2>
+		<ol class="roster">
+			{#each roster as entrant (entrant.name)}
+				<li class:bachelor={entrant.bachelor}>
+					<span class="entrant-name">{entrant.name}</span>
+					<span class="entrant-role">{entrant.role}</span>
+				</li>
+			{/each}
+		</ol>
 	</section>
 
 	<footer>
@@ -229,6 +242,47 @@
 		font-weight: 600;
 		font-variation-settings: 'wdth' 100;
 		letter-spacing: 0.2em;
+		color: var(--marshal);
+	}
+
+	.roster {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.roster li {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--hairline);
+	}
+
+	.entrant-name {
+		font-weight: 600;
+		font-size: 1.05rem;
+	}
+
+	.entrant-role {
+		font-family: var(--mono);
+		font-size: 0.68rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: var(--pavement);
+	}
+
+	.roster li.bachelor .entrant-name {
+		font-weight: 900;
+		font-size: 1.35rem;
+		font-variation-settings: 'wdth' 75;
+		text-transform: uppercase;
+		color: var(--marshal);
+	}
+
+	.roster li.bachelor .entrant-role {
 		color: var(--marshal);
 	}
 
