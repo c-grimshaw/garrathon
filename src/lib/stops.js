@@ -123,7 +123,8 @@ export const roster = [
 	{ name: 'Garrett McDonald', role: 'The Bachelor', bachelor: true },
 	{ name: 'Brook Willis', role: 'Best Man' },
 	{ name: 'Will Hamilton', role: 'Runner' },
-	{ name: 'Charlie Grimshaw', role: 'Runner' }
+	{ name: 'Charlie Grimshaw', role: 'Runner' },
+	{ name: 'Brodie Sheldon', role: 'Runner' }
 ];
 
 /** @param {{ name: string, address: string }} stop */
