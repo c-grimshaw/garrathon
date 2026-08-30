@@ -1,0 +1,75 @@
+/* ————— Garr-athon design tokens —————
+   bib-white   #FBFAF6  paper of a race bib
+   timing-ink  #141412  timing-mat black
+   marshal     #E8490F  course-marshal orange (walking leg)
+   transfer    #2B50C8  transfer blue (the Uber hop)
+   pavement    #6E6A62  asphalt gray, secondary text
+*/
+
+:root {
+	--bib: #fbfaf6;
+	--ink: #141412;
+	--marshal: #e8490f;
+	--transfer: #2b50c8;
+	--pavement: #6e6a62;
+	--hairline: rgba(20, 20, 18, 0.16);
+	--page: var(--bib);
+	--card: #ffffff;
+
+	--display: 'Archivo', 'Arial Narrow', sans-serif;
+	--mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--page: #171614;
+		--ink: #f0eee8;
+		--card: #201f1c;
+		--pavement: #a09a8e;
+		--hairline: rgba(240, 238, 232, 0.18);
+		--marshal: #ff5c1f;
+		--transfer: #7a97ff;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--page);
+	color: var(--ink);
+	font-family: var(--display);
+	font-variation-settings: 'wdth' 100;
+	font-size: 16px;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+:focus-visible {
+	outline: 3px solid var(--marshal);
+	outline-offset: 2px;
+}
