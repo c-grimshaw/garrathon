@@ -17,11 +17,16 @@
 
 			map = L.map(node, { scrollWheelZoom: false });
 
-			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				maxZoom: 19,
-				attribution:
-					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-			}).addTo(map);
+			const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			L.tileLayer(
+				`https://{s}.basemaps.cartocdn.com/${dark ? 'dark_all' : 'light_all'}/{z}/{x}/{y}{r}.png`,
+				{
+					maxZoom: 19,
+					subdomains: 'abcd',
+					attribution:
+						'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+				}
+			).addTo(map);
 
 			const marshal = getComputedStyle(node).getPropertyValue('--marshal').trim() || '#e8490f';
 			const transfer = getComputedStyle(node).getPropertyValue('--transfer').trim() || '#2b50c8';
@@ -45,7 +50,7 @@
 				L.marker(stop.coords, { icon, title: stop.name })
 					.addTo(map)
 					.bindPopup(
-						`<strong>${stop.time} — ${stop.name}</strong><br>${stop.tagline}<br><a href="${mapsUrl(stop)}" target="_blank" rel="noopener">${stop.address}</a>`
+						`<strong>${stop.time} — ${stop.name}</strong><br>Goal: ${stop.goal}<br><a href="${mapsUrl(stop)}" target="_blank" rel="noopener">${stop.address}</a>`
 					);
 			}
 
@@ -110,6 +115,13 @@
 	}
 
 	.map :global {
+		/* warm the grayscale tiles toward the bib paper */
+		@media (prefers-color-scheme: light) {
+			.leaflet-tile-pane {
+				filter: sepia(0.18) saturate(0.85) contrast(1.04);
+			}
+		}
+
 		.cp-pin-inner {
 			display: flex;
 			align-items: center;

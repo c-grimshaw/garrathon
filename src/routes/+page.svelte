@@ -3,7 +3,6 @@
 	import Countdown from '$lib/Countdown.svelte';
 	import RouteMap from '$lib/RouteMap.svelte';
 	import Schedule from '$lib/Schedule.svelte';
-	import Rules from '$lib/Rules.svelte';
 	import { bestMan } from '$lib/stops.js';
 
 	const smsHref = `sms:${bestMan.phone}?&body=${encodeURIComponent("I'm in for the Garr-athon 09.09 🏁")}`;
@@ -26,14 +25,15 @@
 				<Countdown />
 			</div>
 		</div>
-		<p class="strapline">
-			Garrett McDonald runs his last race as a free man. Axes, ales, lanes, oysters, cones,
-			cellar, zombies, chalet — in that order.
-		</p>
 		<div class="cta-row">
 			<a class="cta" href={smsHref}>RSVP — text the best man</a>
 			<a class="cta ghost" href={telHref}>Emergency: call {bestMan.name}</a>
 		</div>
+		<button class="tracker" disabled>
+			<span class="tracker-dot"></span>
+			Live Groom Tracker (we bugged his phone)
+			<span class="tracker-status">offline until 09.09</span>
+		</button>
 	</header>
 
 	<!-- ——— The course ——— -->
@@ -48,26 +48,18 @@
 		<Schedule />
 	</section>
 
-	<!-- ——— Rules ——— -->
-	<section id="rules">
-		<h2><span class="kicker">Course rules</span>Read before the gun</h2>
-		<Rules />
-	</section>
-
 	<!-- ——— Fine print ——— -->
 	<footer>
-		<h2><span class="kicker">Fine print</span>Race logistics</h2>
+		<h2><span class="kicker">Fine print</span>Rules &amp; logistics</h2>
+		<p class="one-rule">One rule: show up sober for the axe throwing.</p>
 		<ul>
-			<li>Everything from the axes to the ice cream is one walkable line along Wellington West.</li>
-			<li>Two paid rides all day: the group Uber downtown (~9:15 PM) and the road move to the chalet.</li>
-			<li>The designated driver's car is staged downtown near Rideau St before the event starts, cooler in the trunk.</li>
-			<li>
-				Booked in advance: LumberJaxe (3:00), West Park lanes (6:00), Elmdale (7:15), Sandbox VR
-				(~10:15). Show up — the bookings won't.
-			</li>
-			<li>Rain plan: none needed. Every checkpoint is indoors.</li>
+			<li>One walkable line along Wellington West, axes to ice cream.</li>
+			<li>Two paid rides all day: the Uber downtown (~9:15 PM) and the road move.</li>
+			<li>Designated driver's car staged near Rideau St, cooler in the trunk.</li>
+			<li>Booked in advance: LumberJaxe (3:00), West Park (6:00), Elmdale (7:15), Sandbox VR (~10:15).</li>
+			<li>Rain plan: none. Every checkpoint is indoors.</li>
 		</ul>
-		<p class="colophon">GARR·ATHON — a marathon-grade bachelor party. 🏁</p>
+		<p class="colophon">GARR·ATHON 🏁</p>
 	</footer>
 </main>
 
@@ -161,14 +153,6 @@
 		padding-top: 0.9rem;
 	}
 
-	.strapline {
-		margin: 1.75rem auto 0;
-		max-width: 34rem;
-		text-align: center;
-		font-size: 1.02rem;
-		color: var(--pavement);
-	}
-
 	.cta-row {
 		display: flex;
 		flex-wrap: wrap;
@@ -194,6 +178,46 @@
 		background: transparent;
 		color: var(--ink);
 		border: 1px solid var(--hairline);
+	}
+
+	.tracker {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0.75rem auto 0;
+		padding: 0.7rem 1.2rem;
+		background: transparent;
+		border: 1px dashed var(--hairline);
+		border-radius: 3px;
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--pavement);
+		opacity: 0.55;
+		cursor: not-allowed;
+	}
+
+	.tracker-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--pavement);
+	}
+
+	.tracker-status {
+		font-weight: 400;
+		letter-spacing: 0.05em;
+		text-transform: none;
+	}
+
+	.one-rule {
+		margin: 0 0 1rem;
+		font-size: 1.05rem;
+		font-weight: 700;
 	}
 
 	/* ——— sections ——— */

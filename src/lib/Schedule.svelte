@@ -14,7 +14,7 @@
 					<span class="split">{stop.split === 'UBER' ? '⇅ UBER' : stop.split}</span>
 				</p>
 				<h3>{stop.name}</h3>
-				<p class="tagline">{stop.tagline}</p>
+				<p class="goal"><span>Goal</span>{stop.goal}</p>
 				<p class="details">{stop.details}</p>
 				<p class="fine">
 					<a href={mapsUrl(stop)} target="_blank" rel="noopener">{stop.address}</a>
@@ -142,10 +142,24 @@
 		line-height: 1.1;
 	}
 
-	.tagline {
-		margin: 0.3rem 0 0;
-		font-style: italic;
+	.goal {
+		margin: 0.4rem 0 0;
 		font-size: 0.95rem;
+		font-weight: 600;
+	}
+
+	.goal span {
+		font-family: var(--mono);
+		font-size: 0.65rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: var(--marshal);
+		margin-right: 0.5rem;
+	}
+
+	.downtown .goal span {
+		color: var(--transfer);
 	}
 
 	.details {
