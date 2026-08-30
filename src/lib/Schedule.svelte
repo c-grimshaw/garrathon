@@ -29,7 +29,6 @@
 	<li class="cp finish">
 		<div class="marker"><span class="num">🏁</span></div>
 		<div class="body">
-			<p class="meta"><span class="time">{finish.time}</span></p>
 			<h3>{finish.name}</h3>
 			<p class="details">{finish.details}</p>
 		</div>

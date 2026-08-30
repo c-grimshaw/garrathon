@@ -48,17 +48,7 @@
 		<Schedule />
 	</section>
 
-	<!-- ——— Fine print ——— -->
 	<footer>
-		<h2><span class="kicker">Fine print</span>Rules &amp; logistics</h2>
-		<p class="one-rule">One rule: show up sober for the axe throwing.</p>
-		<ul>
-			<li>One walkable line along Wellington West, axes to ice cream.</li>
-			<li>Two paid rides all day: the Uber downtown (~9:15 PM) and the road move.</li>
-			<li>Designated driver's car staged near Rideau St, cooler in the trunk.</li>
-			<li>Booked in advance: LumberJaxe (3:00), West Park (6:00), Elmdale (7:15), Sandbox VR (~10:15).</li>
-			<li>Rain plan: none. Every checkpoint is indoors.</li>
-		</ul>
 		<p class="colophon">GARR·ATHON 🏁</p>
 	</footer>
 </main>
@@ -214,11 +204,6 @@
 		text-transform: none;
 	}
 
-	.one-rule {
-		margin: 0 0 1rem;
-		font-size: 1.05rem;
-		font-weight: 700;
-	}
 
 	/* ——— sections ——— */
 	section,
@@ -245,19 +230,6 @@
 		font-variation-settings: 'wdth' 100;
 		letter-spacing: 0.2em;
 		color: var(--marshal);
-	}
-
-	footer ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	footer li {
-		padding: 0.55rem 0;
-		border-bottom: 1px solid var(--hairline);
-		font-size: 0.9rem;
-		color: var(--pavement);
 	}
 
 	.colophon {

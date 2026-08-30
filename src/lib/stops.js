@@ -11,7 +11,7 @@ export const stops = [
 		coords: [45.40935, -75.71925],
 		leg: 'west',
 		approach: 'Start line',
-		details: 'Booked session, ~75 min. Trophy for top thrower.',
+		details: 'Booked session, ~75 min.',
 		goal: 'Do not injure the groom.',
 		split: '0.0 km'
 	},
@@ -86,12 +86,12 @@ export const stops = [
 		leg: 'downtown',
 		approach: 'One Uber hop downtown',
 		details: 'Chalet haul + ice, into the staged car. Doors close at 10:00 sharp.',
-		goal: 'Do not lose the groom in the Vintages cellar.',
+		goal: 'Do not lose the groom.',
 		split: 'UBER'
 	},
 	{
 		n: 8,
-		time: '10:10 PM',
+		time: '10:00 PM',
 		name: 'Sandbox VR',
 		address: '45 Rideau St #200',
 		phone: '(613) 454-7700',
@@ -105,7 +105,6 @@ export const stops = [
 ];
 
 export const finish = {
-	time: '11:45 PM',
 	name: 'Road Move to the Chalet',
 	details: 'Shuttle departs from Rideau St. Cooler loaded. Night phase begins.'
 };
