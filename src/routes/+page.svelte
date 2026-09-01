@@ -3,7 +3,7 @@
 	import Countdown from '$lib/Countdown.svelte';
 	import RouteMap from '$lib/RouteMap.svelte';
 	import Schedule from '$lib/Schedule.svelte';
-	import { bestMan, roster } from '$lib/stops.js';
+	import { bestMan, roster, rules } from '$lib/stops.js';
 
 	const smsHref = `sms:${bestMan.phone}?&body=${encodeURIComponent("I'm in for the Garr-athon 09.09 🏁")}`;
 	const telHref = `tel:${bestMan.phone}`;
@@ -56,6 +56,22 @@
 				<li class:bachelor={entrant.bachelor}>
 					<span class="entrant-name">{entrant.name}</span>
 					<span class="entrant-role">{entrant.role}</span>
+				</li>
+			{/each}
+		</ol>
+	</section>
+
+	<!-- ——— Mini rules ——— -->
+	<section id="rules">
+		<h2><span class="kicker">Mini rules</span>Enforced by whoever saw it first</h2>
+		<ol class="rules">
+			{#each rules as rule (rule.n)}
+				<li>
+					<span class="rule-n">{rule.n}</span>
+					<div class="rule-body">
+						<span class="rule-name">{rule.name}</span>
+						<p class="rule-text">{rule.text}</p>
+					</div>
 				</li>
 			{/each}
 		</ol>
@@ -284,6 +300,43 @@
 
 	.roster li.bachelor .entrant-role {
 		color: var(--marshal);
+	}
+
+	.rules {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.rules li {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--hairline);
+	}
+
+	.rule-n {
+		font-family: var(--mono);
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--marshal);
+	}
+
+	.rule-name {
+		font-family: var(--mono);
+		font-size: 0.68rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		color: var(--pavement);
+	}
+
+	.rule-text {
+		margin: 0.3rem 0 0;
+		font-size: 1.05rem;
+		font-weight: 600;
+		line-height: 1.35;
 	}
 
 	.colophon {

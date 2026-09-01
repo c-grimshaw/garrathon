@@ -114,3 +114,12 @@ export const roster = [
 export function mapsUrl(stop) {
 	return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.name + ', ' + stop.address + ', Ottawa')}`;
 }
+
+// House rules. Add more as they get invented on the course.
+export const rules = [
+	{
+		n: 1,
+		name: 'Rooftop Goat',
+		text: 'Spot a goat on a roof, call it out loud. The spotter picks who does a shot.'
+	}
+];
