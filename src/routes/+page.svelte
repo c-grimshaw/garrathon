@@ -18,7 +18,7 @@
 				<span>GARR·ATHON</span>
 				<span>OTTAWA</span>
 			</div>
-			<p class="event-line">One groom · 8 checkpoints · 2.9 km on foot</p>
+			<p class="event-line">One groom · 7 checkpoints · 2.5 km on foot</p>
 			<p class="bib-number">09.09</p>
 			<p class="bib-name">McDonald</p>
 			<div class="bib-clock">
@@ -38,7 +38,7 @@
 
 	<!-- ——— The course ——— -->
 	<section id="course">
-		<h2><span class="kicker">The course</span>Wellington West, then downtown</h2>
+		<h2><span class="kicker">The course</span>Wellington West, then the chalet</h2>
 		<RouteMap />
 	</section>
 

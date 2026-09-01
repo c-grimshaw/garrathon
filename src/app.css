@@ -2,7 +2,6 @@
    bib-white   #FBFAF6  paper of a race bib
    timing-ink  #141412  timing-mat black
    marshal     #E8490F  course-marshal orange (walking leg)
-   transfer    #2B50C8  transfer blue (the Uber hop)
    pavement    #6E6A62  asphalt gray, secondary text
 */
 
@@ -10,7 +9,6 @@
 	--bib: #fbfaf6;
 	--ink: #141412;
 	--marshal: #e8490f;
-	--transfer: #2b50c8;
 	--pavement: #6e6a62;
 	--hairline: rgba(20, 20, 18, 0.16);
 	--page: var(--bib);
@@ -30,7 +28,6 @@
 		--pavement: #a09a8e;
 		--hairline: rgba(240, 238, 232, 0.18);
 		--marshal: #ff5c1f;
-		--transfer: #7a97ff;
 	}
 }
 

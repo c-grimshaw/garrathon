@@ -4,14 +4,14 @@
 
 <ol class="course">
 	{#each stops as stop (stop.n)}
-		<li class="cp" class:downtown={stop.leg === 'downtown'}>
+		<li class="cp">
 			<div class="marker">
 				<span class="num">{stop.n}</span>
 			</div>
 			<div class="body">
 				<p class="meta">
 					<span class="time">{stop.time}</span>
-					<span class="split">{stop.split === 'UBER' ? '⇅ UBER' : stop.split}</span>
+					<span class="split">{stop.split}</span>
 				</p>
 				<h3>{stop.name}</h3>
 				<p class="goal"><span>Goal</span>{stop.goal}</p>
@@ -61,17 +61,6 @@
 		background: var(--marshal);
 	}
 
-	/* the Uber hop into checkpoint 7 is a transfer, not a walk */
-	.cp:nth-child(6)::before {
-		background: repeating-linear-gradient(
-			to bottom,
-			var(--transfer) 0 6px,
-			transparent 6px 14px
-		);
-		width: 3px;
-		left: calc(1.25rem - 1.5px);
-	}
-
 	.cp.finish::before {
 		display: none;
 	}
@@ -95,10 +84,6 @@
 		font-size: 1.05rem;
 	}
 
-	.downtown .num {
-		background: var(--transfer);
-	}
-
 	.finish .num {
 		background: var(--ink);
 		font-size: 1.2rem;
@@ -117,10 +102,6 @@
 	.time {
 		font-weight: 600;
 		color: var(--marshal);
-	}
-
-	.downtown .time {
-		color: var(--transfer);
 	}
 
 	.finish .time {
@@ -155,10 +136,6 @@
 		letter-spacing: 0.14em;
 		color: var(--marshal);
 		margin-right: 0.5rem;
-	}
-
-	.downtown .goal span {
-		color: var(--transfer);
 	}
 
 	.details {

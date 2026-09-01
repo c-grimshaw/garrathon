@@ -2,10 +2,7 @@
 	import { stops, mapsUrl } from '$lib/stops.js';
 	import 'leaflet/dist/leaflet.css';
 
-	const westLine = stops.filter((s) => s.leg === 'west').map((s) => s.coords);
-	const downtownLine = stops.filter((s) => s.leg === 'downtown').map((s) => s.coords);
-	// dashed connector: last west stop -> first downtown stop (the Uber hop)
-	const uberHop = [westLine[westLine.length - 1], downtownLine[0]];
+	const courseLine = stops.map((s) => s.coords);
 
 	/** @type {import('svelte/attachments').Attachment} */
 	function leafletMap(node) {
@@ -29,21 +26,13 @@
 			).addTo(map);
 
 			const marshal = getComputedStyle(node).getPropertyValue('--marshal').trim() || '#e8490f';
-			const transfer = getComputedStyle(node).getPropertyValue('--transfer').trim() || '#2b50c8';
 
-			L.polyline(westLine, { color: marshal, weight: 4, opacity: 0.9 }).addTo(map);
-			L.polyline(uberHop, {
-				color: transfer,
-				weight: 3,
-				opacity: 0.8,
-				dashArray: '2 10'
-			}).addTo(map);
-			L.polyline(downtownLine, { color: marshal, weight: 4, opacity: 0.9 }).addTo(map);
+			L.polyline(courseLine, { color: marshal, weight: 4, opacity: 0.9 }).addTo(map);
 
 			for (const stop of stops) {
 				const icon = L.divIcon({
 					className: 'cp-pin',
-					html: `<span class="cp-pin-inner${stop.leg === 'downtown' ? ' cp-pin-downtown' : ''}">${stop.n}</span>`,
+					html: `<span class="cp-pin-inner">${stop.n}</span>`,
 					iconSize: [30, 30],
 					iconAnchor: [15, 15]
 				});
@@ -67,8 +56,7 @@
 <div class="map-wrap">
 	<div class="map" {@attach leafletMap}></div>
 	<div class="legend" aria-hidden="true">
-		<span><i class="swatch walk"></i>on foot · 2.9 km</span>
-		<span><i class="swatch uber"></i>uber transfer</span>
+		<span><i class="swatch walk"></i>on foot · 2.5 km</span>
 	</div>
 </div>
 
@@ -110,10 +98,6 @@
 		border-top: 4px solid var(--marshal);
 	}
 
-	.swatch.uber {
-		border-top: 3px dashed var(--transfer);
-	}
-
 	.map :global {
 		/* warm the grayscale tiles toward the bib paper */
 		@media (prefers-color-scheme: light) {
@@ -136,10 +120,6 @@
 			font-size: 14px;
 			border: 2px solid #fff;
 			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-		}
-
-		.cp-pin-inner.cp-pin-downtown {
-			background: var(--transfer);
 		}
 
 		.leaflet-popup-content {
