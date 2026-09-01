@@ -106,8 +106,8 @@ export const roster = [
 	{ name: 'Will Hamilton', role: 'Runner' },
 	{ name: 'Charlie Grimshaw', role: 'Runner' },
 	{ name: 'Brodie OBP', role: 'Runner' },
-	{ name: 'Pat Couisineau', role: 'Runner' },
-	{ name: 'Rachael Machnee', role: 'Runner' }
+	{ name: 'Pat Couisineau', role: 'Tech Support' },
+	{ name: 'Rachael Machnee', role: 'Woo Girl' }
 ];
 
 /** @param {{ name: string, address: string }} stop */
